@@ -6,6 +6,12 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'Valloric/YouCompleteMe'
+
+Plugin 'L9'
+Plugin 'FuzzyFinder'
+"Plugin 'SkidanovAlex/CtrlK'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -53,6 +59,9 @@ set ignorecase
 
 " Override the 'ignorecase' if the search pattern contains upper case characters
 set smartcase
+
+" Highlight occurences of a search
+set hlsearch
 
 " Inverse color for selecting
 hi Visual ctermfg=none ctermbg=none cterm=inverse
@@ -158,17 +167,7 @@ nnoremap # #zz
 " Y from cursor position to the end of line
 nnoremap Y y$
 
-
-
-
-
-
-
-
-
-" Load previous session
-" Only available when compiled with the +viminfo feature
+" Load previous session. Only available when compiled with the +viminfo feature
 set viminfo='10,\"100,:20,%,n~/.viminfo
 " Set cursor to its last position
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
-
