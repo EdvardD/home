@@ -126,5 +126,28 @@ cd() { builtin cd "$@" && ls; }
 ../..() { builtin cd ../.. && ls; }
 ../../..() { builtin cd ../../.. && ls; }
 ../../../..() { builtin cd ../../../.. && ls; }
-st() { git st; }
-diff() { git diff "$@"; }
+
+st() {
+  clear;
+  git st;
+}
+
+diff() {
+  clear;
+  git diff "$@";
+}
+
+acc() {
+  clear;
+  command ack --type=cpp -i "$@";
+}
+
+ac() {
+  clear;
+  command ack -i "$@";
+}
+
+function replace_all() {
+  clear;
+  ack --print0 -irl "$1" | xargs -0 -L1 sed -i "s/$1/$2/g";
+}

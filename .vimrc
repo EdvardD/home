@@ -6,7 +6,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 
 Plugin 'L9'
 Plugin 'FuzzyFinder'
@@ -54,6 +54,9 @@ set showtabline=2
 noremap <S-Tab> gT
 noremap <Tab> gt
 
+" Inverse color for selecting
+hi Visual ctermfg=none ctermbg=none cterm=inverse
+
 " Ignore case during a search
 set ignorecase
 
@@ -62,9 +65,6 @@ set smartcase
 
 " Highlight occurences of a search
 set hlsearch
-
-" Inverse color for selecting
-hi Visual ctermfg=none ctermbg=none cterm=inverse
 
 " Compiling by F7, running by F9
 nmap <F7> :w<CR>:!g++ -Wno-deprecated -Wno-deprecated-declarations -Wall -Wextra -Wconversion -lm -s -x c++ -DSU1 -O2 -pthread -std=c++1y -o %:r %<CR>
@@ -171,3 +171,10 @@ nnoremap Y y$
 set viminfo='10,\"100,:20,%,n~/.viminfo
 " Set cursor to its last position
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+
+" Doesn't work right now
+" Show in tab name only number, name and +- sign
+set guitablabel=\[%N\]\ %t\ %M
+
+" Indentation according AIMTech codestyle
+set cino=N-s,g0,+2s,l-s,i2s
